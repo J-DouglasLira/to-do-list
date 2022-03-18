@@ -7,22 +7,27 @@ import { Container } from "@mui/material";
 export default function Home() {
   const [todos, setTodos] = useState([]);
 
-  const todoHandler = (todo) => {
+  const addTodo = (todo) => {
     setTodos([...todos, todo]);
   };
 
+  const deleteTodo = (id) => {
+    console.log(id);
+}
+
+
   return (
     <Container maxWidth="xs">
-      <Forms todoHandler={todoHandler} />
+      <Forms addTodo={addTodo} />
       {todos.map((todo) => (
-        <div
+        <div key={todo.id}
           style={{
             marginTop: "1em",
             backgroundColor: "white",
             marginTop: "1em",
           }}
         >
-          <TodoItem todo={todo} />
+          <TodoItem todo={todo} deleteTodo={deleteTodo} />
         </div>
       ))}
     </Container>

@@ -1,7 +1,7 @@
 import { TextField, Button, Paper } from "@mui/material";
 import React, { useState } from "react";
 
-export default function Form({ todoHandler }) {
+export default function Form({ addTodo }) {
   const [text, setText] = useState(null);
   const [id, setId] = useState(0);
 
@@ -11,8 +11,9 @@ export default function Form({ todoHandler }) {
       id: id,
     };
     setId(id + 1);
-    todoHandler(todoObj);
+    addTodo(todoObj);
   };
+
 
   return (
     <Paper style={{ padding: "1em" }}>
