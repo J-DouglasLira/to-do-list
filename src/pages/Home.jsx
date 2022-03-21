@@ -24,8 +24,7 @@ export default function Home() {
           key={todo.id}
           style={{
             marginTop: "1em",
-            backgroundColor: "white",
-            marginTop: "1em",
+            backgroundColor: "white"
           }}
         >
           <TodoItem todo={todo} deleteTodo={deleteTodo} />
