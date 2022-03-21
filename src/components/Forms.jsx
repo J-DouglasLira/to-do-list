@@ -12,6 +12,7 @@ export default function Form({ addTodo }) {
     };
     setId(id + 1);
     addTodo(todoObj);
+    document.getElementById("outlined-basic").value = null;
   };
 
 

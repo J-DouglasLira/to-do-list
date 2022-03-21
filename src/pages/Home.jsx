@@ -12,15 +12,16 @@ export default function Home() {
   };
 
   const deleteTodo = (id) => {
-    console.log(id);
-}
-
+    let filtered = todos.filter((todo)=>todo.id !== id);
+    setTodos(filtered);
+  };
 
   return (
     <Container maxWidth="xs">
       <Forms addTodo={addTodo} />
       {todos.map((todo) => (
-        <div key={todo.id}
+        <div
+          key={todo.id}
           style={{
             marginTop: "1em",
             backgroundColor: "white",
