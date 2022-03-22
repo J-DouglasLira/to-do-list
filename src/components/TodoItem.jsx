@@ -20,7 +20,12 @@ export default function TodoItem({ todo, deleteTodo, editTodo }) {
 
   return (
     <>
-      <EditTodoDialog editTodo = {editTodo} open={openDialog} dialogHandler={dialogHandler} todo={todo} />
+      <EditTodoDialog
+        editTodo={editTodo}
+        open={openDialog}
+        dialogHandler={dialogHandler}
+        todo={todo}
+      />
       <Paper>
         <ListItem
           secondaryAction={

@@ -15,7 +15,6 @@ export default function Form({ addTodo }) {
     document.getElementById("outlined-basic").value = null;
   };
 
-
   return (
     <Paper style={{ padding: "1em" }}>
       <div style={{ display: "flex", justifyContent: "center" }}>

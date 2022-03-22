@@ -16,10 +16,18 @@ export default function Home() {
     setTodos(filtered);
   };
 
-  const editTodo = (id, newText) => {
-    console.log(id);
-    console.log(newText);
-    console.log(todos);
+  const editTodo = (id, editedText) => {
+
+
+    var todosArray = [...todos];
+
+    todosArray.splice(id, 1, {text: editedText, id:id})
+
+    setTodos(todosArray);
+
+    /* const todosArray = [...todos];
+    todosArray.splice(id, 1, {text: editedText, id: id});
+    setTodos(todosArray); */
   };
 
   return (
@@ -33,7 +41,7 @@ export default function Home() {
             backgroundColor: "white",
           }}
         >
-          <TodoItem todo={todo} deleteTodo={deleteTodo} />
+          <TodoItem editTodo={editTodo} todo={todo} deleteTodo={deleteTodo} />
         </div>
       ))}
     </Container>
