@@ -12,8 +12,14 @@ export default function Home() {
   };
 
   const deleteTodo = (id) => {
-    let filtered = todos.filter((todo)=>todo.id !== id);
+    let filtered = todos.filter((todo) => todo.id !== id);
     setTodos(filtered);
+  };
+
+  const editTodo = (id, newText) => {
+    console.log(id);
+    console.log(newText);
+    console.log(todos);
   };
 
   return (
@@ -24,7 +30,7 @@ export default function Home() {
           key={todo.id}
           style={{
             marginTop: "1em",
-            backgroundColor: "white"
+            backgroundColor: "white",
           }}
         >
           <TodoItem todo={todo} deleteTodo={deleteTodo} />

@@ -6,18 +6,19 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TodoItem from "./TodoItem";
+import { TextField } from "@mui/material";
 
-export default function EditTodoDialog({ open, dialogHandler}) {
-  /*    const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
-  const handleClose = () => {   
-    setOpen(false);
-  }; 
- */
+
+
+
+export default function EditTodoDialog({ open, dialogHandler, todo, editTodo }) {
+
+  const [editedTodo, setEditedTodo] = React.useState(todo.text);
+
+  
+
   return (
     <Dialog
       open={open}
@@ -26,17 +27,14 @@ export default function EditTodoDialog({ open, dialogHandler}) {
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {"Use Google's location service?"}
+        {"To-do edit"}
       </DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.
-        </DialogContentText>
+        <TextField defaultValue = {editedTodo} onChange = {(e) => setEditedTodo(e.target.value)} fullWidth     />
       </DialogContent>
       <DialogActions>
-        <Button>Cancel</Button>
-        <Button>Submit</Button>
+        <Button onClick={dialogHandler}>Cancel</Button>
+        <Button >Submit</Button>
       </DialogActions>
     </Dialog>
   );

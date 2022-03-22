@@ -11,7 +11,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Paper } from "@mui/material";
 import EditTodoDialog from "./EditTodoDialog";
 
-export default function TodoItem({ todo, deleteTodo }) {
+export default function TodoItem({ todo, deleteTodo, editTodo }) {
   const [openDialog, setOpenDialog] = React.useState(false);
 
   const dialogHandler = () => {
@@ -20,7 +20,7 @@ export default function TodoItem({ todo, deleteTodo }) {
 
   return (
     <>
-      <EditTodoDialog open={openDialog} dialogHandler={dialogHandler} />
+      <EditTodoDialog editTodo = {editTodo} open={openDialog} dialogHandler={dialogHandler} todo={todo} />
       <Paper>
         <ListItem
           secondaryAction={
@@ -38,7 +38,10 @@ export default function TodoItem({ todo, deleteTodo }) {
             <ListItemIcon>
               <Checkbox edge="start" tabIndex={-1} disableRipple />
             </ListItemIcon>
-            <ListItemText onClick = {()=>setOpenDialog(true)} primary={todo.text} />
+            <ListItemText
+              onClick={() => setOpenDialog(true)}
+              primary={todo.text}
+            />
           </ListItemButton>
         </ListItem>
       </Paper>
