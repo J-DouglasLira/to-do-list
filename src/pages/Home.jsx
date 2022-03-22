@@ -17,17 +17,12 @@ export default function Home() {
   };
 
   const editTodo = (id, editedText) => {
-
-
     var todosArray = [...todos];
 
-    todosArray.splice(id, 1, {text: editedText, id:id})
+    let deletedCountFrom = 1;
+    todosArray.splice(id, deletedCountFrom, { text: editedText, id: id });
 
     setTodos(todosArray);
-
-    /* const todosArray = [...todos];
-    todosArray.splice(id, 1, {text: editedText, id: id});
-    setTodos(todosArray); */
   };
 
   return (
